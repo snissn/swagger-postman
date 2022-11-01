@@ -1,8 +1,8 @@
 set -eux
 
 export APIKEY=$(cat APIKEY)
-#curl -s https://raw.githubusercontent.com/application-research/estuary-clients/main/swagger.json -o swagger.json
-cp ../estuary/docs/swagger.json swagger.json
+curl -s https://raw.githubusercontent.com/application-research/estuary-clients/main/swagger.json -o swagger.json
+#cp ../estuary/docs/swagger.json swagger.json
 
 
 
