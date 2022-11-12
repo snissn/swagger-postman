@@ -21,10 +21,10 @@ coluuid = api_response.uuid
 #TODO
 body = '{}'
 cid = "bafkreifvxooyaffa7gy5mhrb46lnpdom34jvf4r42mubf5efbodyvzeujq"
-contentid = "contentid"
-dealid = "dealid"
+contentid = "1"#todo
+dealid = "1" #todo
 empty = ""
-addresses = json.dumps(["127.0.0.1"])
+addresses = "127.0.0.1"
 testfilename="testfile"
 apikey="foo" # todo create api key then get it
 name="testname"
@@ -73,3 +73,6 @@ data['propcid'] = propcid
 data['pubKey'] = pubkey
 data['replication'] = empty
 data['req'] = ContentCreateBody
+
+
+data['pin'] = {"cid":cid, "name":name}

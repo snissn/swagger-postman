@@ -13,4 +13,4 @@ python3 postman.py > newman.json
 
 
 sed -i  -e 's/api.estuary.tech/localhost:3004/g' newman.json
-newman run newman.json
+newman run --verbose newman.json

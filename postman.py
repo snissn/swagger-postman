@@ -70,7 +70,7 @@ def process_rule(rule):
                     "script": {
                         "type": "text/javascript",
                         "exec": [
-                            "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                            "tests[\"Status code is 200\"] = (responseCode.code >= 200 && responseCode.code < 300);"
                         ]
                     }
                 }
@@ -101,6 +101,11 @@ def process_rule(rule):
         handle_json(rule)
         pass
         #print(2,post_body)
+
+
+    for index, urlpart in enumerate(rule['request']['url']['path']):
+        if urlpart.startswith(":"):
+            rule['request']['url']['path'][index] = testdata.data[urlpart[1:]]
 
 
 
