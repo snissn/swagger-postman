@@ -51,13 +51,15 @@ def handle_form(post_body, swagger):
     #print("handle_form",post_body) 
     #assert 0 == 1
 def handle_json(rule):
-    #pprint("post_body")
     post_body =rule.get('request')
-    #pprint(post_body)
     swagger = read_swagger(rule)
     for parameter in swagger['parameters']:
         if parameter.get("in") == "body":
-            post_body['body']['raw'] = json.dumps(testdata.data[ parameter.get("name")])
+            if parameter.get("name") == "body":
+                key = parameter['schema'].get('$ref', 'body')
+                post_body['body']['raw'] = json.dumps(testdata.data[key])
+            else:
+                post_body['body']['raw'] = json.dumps(testdata.data[ parameter.get("name")])
 
 
 def process_rule(rule):
